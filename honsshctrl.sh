@@ -48,6 +48,10 @@
 #   Added argument to clean up stale pid file.
 #   Check executing user permissions.
 #
+
+export PATH="/home/sr/honssh/env/bin:$PATH"
+export PYTHONPATH="$PYTHONPATH:/home/sr/honssh/honssh"
+
 set -e
 
 
