@@ -150,7 +150,7 @@ Source - https://ubuntu.com/server/docs/install/step-by-step
 ### Clone repository
 
     git clone https://github.com/jxto13/SR-Project.git
-    cd honssh
+    cd SR-Project
     git checkout sr-project
 
 ### Change SSH Port
@@ -222,7 +222,15 @@ Source - https://github.com/moncho/dry
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Setup a website
+
+    # Install apache server
+    sudo apt install apache2
+
+    # Copy website files
+    sudo cp -r webiste/* /var/www/html
+
+Source - https://www.free-css.com/free-css-templates/page285/cial
 
 ## Authors
 
