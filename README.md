@@ -17,8 +17,10 @@ HonSSH will sit between an attacker and a honey pot, creating two separate SSH c
         - [Python 2](#python-2)
         - [Dependencies](#dependencies)
         - [Docker manager CLI](#docker-manager-cli)
-- [Run Project](#run-project)
 - [Deployment](#deployment)
+    - [Operation](#operation)
+    - [Hiding the Honeypot](#hiding-the-honeypot)
+- [Run Project](#run-project)
 - [License](#license)
 
 
@@ -47,6 +49,13 @@ What things you need to install the software:
 - Any virtualization software (e.g. VMware Workstation Player, VirtualBox, QEMU, etc.)
 - [Ubuntu-20-04 Server ISO](https://ubuntu.com/download/server)
 
+---
+
+With you dont know how to setup a local virtual machine and install a linux image
+
+<details>
+
+<summary>Click here</summary>
 
 ### Installing Virtual Box
 
@@ -143,7 +152,9 @@ Reboot and the installation is complete.
 
 Source - https://ubuntu.com/server/docs/install/step-by-step
 
+</details>
 
+---
 
 ## Setup
 
@@ -161,10 +172,14 @@ Source - https://ubuntu.com/server/docs/install/step-by-step
 
 ### Docker postinstall
 
-Postinstall
- 
+    # Lets you run docker without root privileges 
     sudo groupadd docker
     sudo usermod -aG docker $USER
+
+    # You can also run the following command to activate the changes to groups:
+    newgrp docker
+
+Source - https://docs.docker.com/engine/install/linux-postinstall/
 
 Pull and Build Docker Image
 
@@ -201,11 +216,13 @@ Create virtualvenv
 
     pip2 install -r requirements.txt
 
-Source - https://docs.docker.com/engine/install/linux-postinstall/
+
 
 
 
 ### Docker manager CLI (Optional)
+This a CLI tool to view and manage docker
+
 Installation
 
     curl -sSf https://moncho.github.io/dry/dryup.sh | sudo sh
@@ -213,12 +230,6 @@ Installation
 
 Source - https://github.com/moncho/dry
 
-
-## Run Project
-
-### SSH-Proxy
-    sudo ./honsshctrl.sh start
-    
 
 ## Deployment
 
@@ -238,7 +249,8 @@ To deploy this Honeypot, Google Cloud Services was used.
 
 Follow this [Guide](https://cloud.google.com/compute/docs/instances/create-start-instance) to Create and Start a VM. 
 
-We choose to setup a website as the bait, because is very common to scan an website ip for open ports:
+### Hiding the Honeypot
+We choose to setup a website as the bait, because is very common to scan an website ip for open ports, but anything can be used.
 
 Setup a website
 
@@ -251,6 +263,16 @@ Setup a website
 Source - https://www.free-css.com/free-css-templates/page285/cial
 
 Than, open a port of your choosing (we used port 2222), you can follow this [Guide]( https://cloud.google.com/vpc/docs/using-firewalls)
+
+## Run Project
+
+### SSH-Proxy
+
+    sudo ./honsshctrl.sh start
+    
+After the proxy is running, you connect using:
+
+    ssh {user}@{ip} -p {port}
 
 
 
