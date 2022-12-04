@@ -9,3 +9,7 @@ honssh.pid
 .idea/
 *.iml
 *~
+certificate.crt
+private.key
+request.csr
+users.cfg
