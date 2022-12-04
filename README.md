@@ -18,6 +18,7 @@ HonSSH will sit between an attacker and a honey pot, creating two separate SSH c
         - [Dependencies](#dependencies)
         - [Docker manager CLI](#docker-manager-cli)
 - [Deployment](#deployment)
+    - [Operation](#operation)
     - [Hiding the Honeypot](#hiding-the-honeypot)
 - [Run Project](#run-project)
 - [License](#license)
@@ -48,6 +49,13 @@ What things you need to install the software:
 - Any virtualization software (e.g. VMware Workstation Player, VirtualBox, QEMU, etc.)
 - [Ubuntu-20-04 Server ISO](https://ubuntu.com/download/server)
 
+---
+
+With you dont know how to setup a local virtual machine and install a linux image
+
+<details>
+
+<summary>Click here</summary>
 
 ### Installing Virtual Box
 
@@ -144,7 +152,9 @@ Reboot and the installation is complete.
 
 Source - https://ubuntu.com/server/docs/install/step-by-step
 
+</details>
 
+---
 
 ## Setup
 
