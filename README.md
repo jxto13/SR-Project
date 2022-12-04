@@ -17,8 +17,9 @@ HonSSH will sit between an attacker and a honey pot, creating two separate SSH c
         - [Python 2](#python-2)
         - [Dependencies](#dependencies)
         - [Docker manager CLI](#docker-manager-cli)
-- [Run Project](#run-project)
 - [Deployment](#deployment)
+    - [Hiding the Honeypot](#hiding-the-honeypot)
+- [Run Project](#run-project)
 - [License](#license)
 
 
@@ -214,12 +215,6 @@ Installation
 Source - https://github.com/moncho/dry
 
 
-## Run Project
-
-### SSH-Proxy
-    sudo ./honsshctrl.sh start
-    
-
 ## Deployment
 
 HonSSH is intended to sit between the outside world and the honey pot.
@@ -238,7 +233,8 @@ To deploy this Honeypot, Google Cloud Services was used.
 
 Follow this [Guide](https://cloud.google.com/compute/docs/instances/create-start-instance) to Create and Start a VM. 
 
-We choose to setup a website as the bait, because is very common to scan an website ip for open ports:
+### Hiding the Honeypot
+We choose to setup a website as the bait, because is very common to scan an website ip for open ports, but anything can be used.
 
 Setup a website
 
@@ -251,6 +247,16 @@ Setup a website
 Source - https://www.free-css.com/free-css-templates/page285/cial
 
 Than, open a port of your choosing (we used port 2222), you can follow this [Guide]( https://cloud.google.com/vpc/docs/using-firewalls)
+
+## Run Project
+
+### SSH-Proxy
+
+    sudo ./honsshctrl.sh start
+    
+After the proxy is running, you connect using:
+
+    ssh {user}@{ip} -p {port}
 
 
 
