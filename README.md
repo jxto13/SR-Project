@@ -172,10 +172,14 @@ Source - https://ubuntu.com/server/docs/install/step-by-step
 
 ### Docker postinstall
 
-Postinstall
- 
+    # Lets you run docker without root privileges 
     sudo groupadd docker
     sudo usermod -aG docker $USER
+
+    # You can also run the following command to activate the changes to groups:
+    newgrp docker
+
+Source - https://docs.docker.com/engine/install/linux-postinstall/
 
 Pull and Build Docker Image
 
@@ -212,11 +216,13 @@ Create virtualvenv
 
     pip2 install -r requirements.txt
 
-Source - https://docs.docker.com/engine/install/linux-postinstall/
+
 
 
 
 ### Docker manager CLI (Optional)
+This a CLI tool to view and manage docker
+
 Installation
 
     curl -sSf https://moncho.github.io/dry/dryup.sh | sudo sh
