@@ -222,19 +222,36 @@ Source - https://github.com/moncho/dry
 
 ## Deployment
 
+HonSSH is intended to sit between the outside world and the honey pot.
+
+### Operation
+
+                     <-----SSH Connection------>          <-----SSH Connection------>
+        
+         |----------|        /----------\       |--------|                           |----------|
+         | Attacker |--------| Internet |-------| HonSSH |---------------------------| HoneyPot |
+         |----------|        \----------/       |--------|                           |----------|
+
+Source - https://github.com/tnich/honssh/wiki/Deployment-Guide/
+
+To deploy this Honeypot, Google Cloud Services was used.
+
+Follow this [Guide](https://cloud.google.com/compute/docs/instances/create-start-instance) to Create and Start a VM. 
+
+We choose to setup a website as the bait, because is very common to scan an website ip for open ports:
+
 Setup a website
 
     # Install apache server
     sudo apt install apache2
 
     # Copy website files
-    sudo cp -r webiste/* /var/www/html
+    sudo cp -r website/* /var/www/html
 
 Source - https://www.free-css.com/free-css-templates/page285/cial
 
-## Authors
+Than, open a port of your choosing (we used port 2222), you can follow this [Guide]( https://cloud.google.com/vpc/docs/using-firewalls)
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 
 ## License
